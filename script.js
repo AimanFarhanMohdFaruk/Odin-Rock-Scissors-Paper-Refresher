@@ -66,7 +66,6 @@ function resetPlayersScore () {
 function playRound() {
     for (let i = 0; i < 5; i++){
         playGame()
-        console.log `${winner} wins!`
     };
     const playerOneCurrentWinCount = playerOneWinCount;
     const computerCurrentWinCount = computerWinCount;
