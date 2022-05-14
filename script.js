@@ -21,7 +21,6 @@ function getComputerSelection (){
 
 function getPlayerSelection () {
     const playerInput = prompt("Please choose: ROCK, SCISSORS, or PAPER")
-
     return playerInput.toUpperCase();
 }
 
