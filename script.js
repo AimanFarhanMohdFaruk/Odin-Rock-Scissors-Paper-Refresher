@@ -5,13 +5,14 @@ const SCISSORS = "SCISSORS"
 const PAPER = "PAPER"
 const PLAYER = "PLAYER"
 const COMPUTER = "COMPUTER"
+const DRAW = "DRAW"
 
 const playerChoices = [ROCK,SCISSORS,PAPER]
 const winningConditions = [[ROCK,SCISSORS],[PAPER,ROCK],[SCISSORS,PAPER]]
-let winner = null
-let playerOneWinCount = 0
-let playerTwoWinCount = 0
-let computerWinCount = 0
+let winner = DRAW;
+let playerOneWinCount = 0;
+let playerTwoWinCount = 0;
+let computerWinCount = 0;
 
 function getComputerSelection (){
     const random = Math.floor(Math.random() * playerChoices.length)
@@ -48,12 +49,16 @@ function playGame() {
     if (winningConditionsExists(winningConditions, roundChoices)){
         winner = PLAYER
         playerOneWinCount++;
+        annouceGameWinner()
         return `You won! ${playerSelection} beats ${computerSelection}`
     } else if ( playerSelection == computerSelection) {
+        winner = DRAW
+        annouceGameWinner()
         return `It's a draw!`
     } else {
         winner = COMPUTER
         computerWinCount++;
+        annouceGameWinner()
         return `You lost. ${computerSelection} beats ${playerSelection}`
     }
 }
@@ -62,6 +67,14 @@ function resetPlayersScore () {
     playerOneWinCount = 0
     computerWinCount = 0
 };
+
+function annouceGameWinner (){
+    if (winner !== DRAW){
+        console.log(`${winner} wins this round! Player: ${playerOneWinCount} Computer:${computerWinCount}`)
+    } else {
+        console.log(`It's a draw!  Player: ${playerOneWinCount} Computer:${computerWinCount}`)
+    }
+}
 
 function playRound() {
     for (let i = 0; i < 5; i++){
