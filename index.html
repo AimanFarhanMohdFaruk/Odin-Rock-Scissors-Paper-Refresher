@@ -6,9 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors Exercise</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <p>One step at a time</p>
+    <div id="container">
+        <h2>Let's play a round with the computer!</h2>
+        <h3 id="roundCount">Click one of the buttons to start the game</h3>
+
+        <div class="scoreSection">
+            <h3>Player Score: <span id="playerScore">0</span></h3>
+            <h3>Computer Score: <span id="computerScore">0</span></h3>
+        </div>
+
+        <div class="btnSection">
+            <button value="ROCK" id="rock">ROCK</button>
+            <button value="PAPER" id="paper">PAPER</button>
+            <button value="SCISSORS" id="scissors">SCISSORS</button>
+        </div>
+    </div>
+
+    <div class="modal" id="resultModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Player wins this round with 3 wins! Click anywhere to restart the game</p>
+        </div>
+    </div>
 </body>
 </html>
